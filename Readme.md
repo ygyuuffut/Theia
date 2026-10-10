@@ -2,6 +2,7 @@
 
 # THEIA - A SYNODIC Installer
 This project is a Mac/PC based SYNODIC installer for sugarcube game "STG"
+You can access the SYNODIC [here](https://github.com/ygyuuffut/Synodic)
 
 ## Getting Started
 - Download the Release
