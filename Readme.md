@@ -1,5 +1,5 @@
 ![Theia Image](https://raw.githubusercontent.com/ygyuuffut/Theia/refs/heads/main/images/Theia%20Banner.png)
-![Theia Image](https://raw.githubusercontent.com/ygyuuffut/Theia/refs/heads/main/images/Theia%20Banner.png)
+![Theia Image](https://raw.githubusercontent.com/ygyuuffut/Theia/refs/heads/main/images/Theia%20Banner%20ZH.png)
 
 # THEIA - A SYNODIC Installer
 
