@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {compatibleCandidates,compareVersions} from '../prototypes/browser/releases.js';
+const row=(version,channel='stable',games=['0.2001'])=>({release:{tag_name:'v'+version,prerelease:['rc','beta'].includes(channel),draft:false},manifest:{schema_version:'candidate-1',release_version:version,channel,supported_stg_versions:games}});
+const rows=[row('1.9.0'),row('1.10.0'),row('2.0.0-rc.10','rc'),row('2.0.0-rc.2','rc'),row('8.0.0','stable',['0.3000']),row('1.11.0','legacy')];
+assert.equal(compatibleCandidates(rows,'0.2001')[0].manifest.release_version,'1.10.0');
+assert.equal(compatibleCandidates(rows,'0.2001',{preview:true})[0].manifest.release_version,'2.0.0-rc.10');
+assert.equal(compatibleCandidates(rows,'0.2001',{legacy:true})[0].manifest.release_version,'1.11.0');
+assert.equal(compatibleCandidates(rows,'unknown').length,0);
+const draft=row('9.0.0');draft.release.draft=true;const bad=row('10.0.0');bad.release.tag_name='wrong';const mismatch=row('11.0.0');mismatch.release.prerelease=true;
+assert.equal(compatibleCandidates([draft,bad,mismatch],'0.2001').length,0);
+assert(compareVersions('1.0.0','1.0.0-rc.1')>0);assert(compareVersions('1.0.0-beta.2','1.0.0-rc.1')<0);
+assert.throws(()=>compareVersions('b6.9','1.0.0'));assert.throws(()=>compareVersions('1.0.0-rc.01','1.0.0'));
+console.log('PASS candidate compatibility/channel/tag/draft and numeric SemVer ranking; b6.9 requires explicit mapping');

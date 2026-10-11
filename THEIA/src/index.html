@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; worker-src blob:; style-src 'unsafe-inline'; font-src data:; img-src data:; connect-src https://api.github.com https://github.com https://raw.githubusercontent.com https://release-assets.githubusercontent.com; base-uri 'none'; form-action 'none'">
+<title>THEIA /*__VERSION__*/ — SYNODIC Installer for STG</title>
+<style>/*__STYLES__*/</style>
+</head>
+<body>
+<main class="installer">
+ <header class="brand">
+  <h1 class="sr-only">THEIA</h1>
+  <img class="brand-mark" src="data:image/svg+xml;base64,/*__BRAND__*/" width="1889" height="867" alt="THEIA — SYNODIC Installer for STG">
+ </header>
+ <div class="tab" aria-label="Current page"><span>SYNODIC <b>Core</b></span></div>
+ <section class="step" id="game-step" data-state="ready">
+  <div class="step-heading"><h2>Original Game</h2><span class="status-symbol" role="img" aria-label="Ready"></span></div>
+  <button class="panel" id="game-button" type="button"><span class="placeholder" id="game-placeholder">Select Game…</span><span class="panel-content" id="game-content" hidden><strong id="game-title"></strong><span id="game-version"></span><small>Click again to change file</small></span></button>
+  <details class="force-options" id="force-options"><summary>Modified game options</summary><label class="check"><input type="checkbox" id="force-load" disabled aria-describedby="force-warning"> Force load modified game</label><p class="muted compact">For card-workshop edits and other modified games. Skips the original-game fingerprint check only.</p><p class="force-warning" id="force-warning" role="status" hidden>Force load enabled. Modified-game compatibility is unverified. Errors, broken story choices or unusable saves may occur. Use at your own risk.</p></details>
+ </section>
+ <section class="step" id="release-step" data-state="unavailable">
+  <div class="step-heading"><h2>SYNODIC Release</h2><span class="status-symbol" role="img" aria-label="Unavailable"></span></div>
+  <button class="panel" id="release-button" type="button" disabled><span class="placeholder" id="release-placeholder">Game must be selected first</span><span class="panel-content" id="release-content" hidden><strong id="release-title"></strong><span id="release-description"></span><small>Click again to select other versions</small></span></button>
+ </section>
+ <section class="step" id="install-step" data-state="unavailable">
+  <div class="step-heading"><h2>Install &amp; Export</h2><span class="status-symbol" role="img" aria-label="Unavailable"></span></div>
+  <button class="panel" id="install-button" type="button" disabled><span class="placeholder" id="install-placeholder">Game must be selected first</span><span class="panel-content" id="install-content" hidden><strong id="install-title"></strong><span id="install-description"></span><small id="install-hint">Click to install</small></span></button>
+ </section>
+ <p class="message" id="message" aria-live="polite" aria-atomic="true"></p>
+ <button id="cancel-button" class="text-button" type="button" hidden>Cancel</button>
+ <footer><span>THEIA /*__VERSION__*/</span><button class="text-button" id="settings-button" type="button">Sources &amp; About</button></footer>
+</main>
+<input class="sr-only" id="game-file" type="file" accept=".html,.htm,text/html" tabindex="-1" aria-label="Select original STG HTML">
+<input class="sr-only" id="core-file" type="file" accept=".zip,application/zip" tabindex="-1" aria-label="Import SYNODIC Core ZIP">
+<dialog id="release-dialog" aria-labelledby="release-dialog-title">
+ <form method="dialog" class="dialog-heading"><h2 id="release-dialog-title">SYNODIC Release</h2><button class="close-button" aria-label="Close">×</button></form>
+ <p id="release-note" class="muted"></p>
+ <div class="dialog-actions"><button id="refresh-button" type="button">Find releases</button><button id="import-button" type="button">Import Core ZIP…</button></div>
+ <label class="check"><input type="checkbox" id="show-preview"> Show RC &amp; Beta releases</label>
+ <p id="preview-note" class="muted compact" hidden></p>
+ <div id="release-list" class="release-list"></div>
+ <p class="muted compact">Core files come from GitHub or your selected ZIP. Your game stays on this device.</p>
+</dialog>
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+ <form method="dialog" class="dialog-heading"><h2 id="settings-title">Sources &amp; About</h2><button class="close-button" aria-label="Close">×</button></form>
+ <p>THEIA /*__VERSION__*/ · Local HTML Installer</p>
+ <label class="field">SYNODIC repository<input id="repository" value="ygyuuffut/Synodic" autocomplete="off" spellcheck="false"></label>
+ <label class="field">Optional static distribution index<input id="index-url" placeholder="https://raw.githubusercontent.com/…/catalog.json" type="url" spellcheck="false"></label>
+ <p class="muted compact">A publisher may provide the same Core ZIP through a static GitHub source when Release downloads cannot be read by the browser. No server is required.</p>
+ <button id="save-sources" type="button">Apply sources</button>
+ <details><summary>Licenses &amp; source</summary><p class="compact">THEIA is licensed under GNU GPL version 3 or later (GPL-3.0-or-later). STG remains separately copyrighted and is not included.</p><p class="compact"><a href="https://github.com/ygyuuffut/Theia" target="_blank" rel="noopener noreferrer">THEIA source</a> · <a href="https://github.com/ygyuuffut/Synodic" target="_blank" rel="noopener noreferrer">SYNODIC releases</a></p><pre class="licenses">/*__LICENSES__*/</pre></details>
+ <p class="muted compact">Additional Modules are planned for later. This version installs paired LUNAR + MOONSHINE Core only.</p>
+</dialog>
+<script id="theia-worker" type="application/octet-stream">/*__WORKER__*/</script>
+<script>/*__APP__*/</script>
+</body>
+</html>

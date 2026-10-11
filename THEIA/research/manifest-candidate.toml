@@ -1,0 +1,76 @@
+# Illustrative schema candidate, NOT installable official metadata.
+# Digests/source locations are placeholders. Do not publish this as a release.
+schema_version = 1
+proposal = true
+release_version = "1.0.0-rc.1"
+channel = "rc"
+supported_stg_versions = ["0.2001"]
+
+[release]
+tag = "v1.0.0-rc.1"
+revision = "example-build-revision"
+
+[source]
+repository = "https://example.invalid/synodic-source"
+commit = "0000000000000000000000000000000000000000"
+source_archive = "synodic-source-1.0.0-rc.1.tar.gz"
+build_instructions = "BUILDING.md"
+toolchain_lock = "toolchain.lock"
+
+[installer]
+minimum_theia_version = "7.0.0"
+injection_contract = "python-oracle-text-projection-candidate-1"
+payload = "payload/core.json"
+entry_order = ["bootstrap", "font-resources", "styles", "config-data", "lunar", "moonshine"]
+# Entry order describes dependency classes, not literal Python string-write order.
+# Exact individual module/block order is in the versioned payload, not this summary.
+
+[[games]]
+version = "0.2001"
+fingerprint_policy = "known-raw-sha256-required"
+certification = "pending"
+[[games.fingerprints]]
+variant = "example-original-export"
+algorithm = "sha256"
+scope = "raw-file-bytes"
+digest = "0000000000000000000000000000000000000000000000000000000000000000"
+
+[[components]]
+id = "lunar"
+version = "0.1.0"
+api_version = "0.1"
+required = true
+[[components]]
+id = "moonshine"
+version = "0.1.0"
+requires_lunar_api = ">=0.1"
+required = true
+
+[package]
+asset_name = "synodic-core-1.0.0-rc.1.zip"
+manifest_path = "manifest.toml"
+max_uncompressed_bytes = 16777216
+max_entries = 256
+zip_digest_source = "trusted-release-catalog"
+# Whole-ZIP digest is outside ZIP to avoid a circular self-hash.
+[[package.files]]
+path = "payload/core.json"
+size = 1234
+sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+[[package.files]]
+path = "licenses/THIRD-PARTY-NOTICES.txt"
+size = 567
+sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+
+[license]
+selection = "pending"
+candidates = ["GPL-3.0-only", "GPL-3.0-or-later"]
+notice_path = "COPYING"
+third_party_notices = "licenses/THIRD-PARTY-NOTICES.txt"
+includes_original_stg = false
+# Final metadata must contain one actual SPDX expression, not candidates/pending.
+
+[extensions]
+mod_installation_enabled = false
+future_lunar_api = "0.1"
+# Reserved descriptive data; no MOD execution/marketplace in v1.
