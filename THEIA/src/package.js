@@ -11,7 +11,7 @@ function validateManifest(m){
  insist((m.channel==='stable'||m.channel==='legacy')===!parseVersion(m.release_version).pre.length || m.channel==='legacy','Release channel/version mismatch');
  insist(m.injection_contract==='synodic-python-text-v1','Unsupported injection contract');
  insist(Array.isArray(m.games)&&m.games.length>0&&m.games.length<=32,'Missing game compatibility');
- const gameKeys=new Set();for(const g of m.games){insist(plain(g)&&/^\d+(?:\.\d+)+$/.test(g.version)&&!gameKeys.has(g.version),'Invalid or duplicate game version');gameKeys.add(g.version);insist(Array.isArray(g.raw_sha256)&&g.raw_sha256.length>0&&g.raw_sha256.length<=32&&g.raw_sha256.every(h=>HASH.test(h)&&!/^(0){64}$/.test(h)),'Known original game fingerprints required');}
+ const gameKeys=new Set();for(const g of m.games){insist(plain(g)&&isGameVersion(g.version)&&!gameKeys.has(g.version),'Invalid or duplicate game version');gameKeys.add(g.version);insist(Array.isArray(g.raw_sha256)&&g.raw_sha256.length>0&&g.raw_sha256.length<=32&&g.raw_sha256.every(h=>HASH.test(h)&&!/^(0){64}$/.test(h)),'Known original game fingerprints required');}
  insist(Array.isArray(m.components)&&m.components.length===2,'LUNAR and MOONSHINE must be paired');
  const componentIDs=m.components.map(c=>c.id);insist(new Set(componentIDs).size===2&&componentIDs.includes('lunar')&&componentIDs.includes('moonshine'),'Only public paired Core is supported');
  insist(m.payload_path==='payload.json','Unsupported payload path');

@@ -1,4 +1,7 @@
-/* SemVer comparison. Stable is recommended; preview releases require explicit selection. */
+/* STG identities are not Core SemVer: preserve numeric versions and Demo suffixes. */
+const gameVersionPattern=/^\d+(?:\.\d+)+(?:-demo(?:\.\d+)?)?$/;
+function isGameVersion(value){return typeof value==='string'&&value.length<=64&&value===value.trim()&&gameVersionPattern.test(value);}
+/* Core SemVer comparison. Stable is recommended; previews require explicit selection. */
 const versionPattern=/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/;
 function parseVersion(value){
  const m=String(value).match(versionPattern);if(!m)throw Error('Not SemVer: '+value);

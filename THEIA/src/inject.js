@@ -8,7 +8,7 @@ function detectGame(text) {
   const scripts = [...text.matchAll(/<script\b[^>]*\bid=["']twine-user-script["'][^>]*>([\s\S]*?)<\/script>/gi)];
   if (scripts.length !== 1) throw Error('Missing or duplicate native game script');
   const versions = [...scripts[0][1].matchAll(/window\.STG_VERSION\s*=\s*(['"])(.*?)\1/g)].map(m => m[2]);
-  if (versions.length !== 1 || !/^v?\d+(?:\.\d+)+$/.test(versions[0])) throw Error('Missing, duplicate or unsupported version declaration');
+  if (versions.length !== 1 || !isGameVersion(versions[0].replace(/^v/, ''))) throw Error('Missing, duplicate or unsupported version declaration');
   const injected = /<!-- STG-[A-Z-]+:(?:START|END) -->|id=["'](?:LUNAR-|MOONSHINE-|lunar\.|moonshine\.)/.test(text);
   return {declared: versions[0], version: versions[0].replace(/^v/, ''), injected};
 }
