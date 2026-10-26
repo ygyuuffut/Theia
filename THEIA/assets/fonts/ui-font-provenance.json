@@ -1,0 +1,96 @@
+{
+  "google_fonts_commit": "e7db6ca603fd4862010383ff17ffd6cc4ffac1c0",
+  "material_icons_commit": "10ecc14790612ca8fd164e3f4ffe9c16fc50d5b7",
+  "files": {
+    "google-sans.woff2": {
+      "source": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/googlesans/GoogleSans%5BGRAD%2Copsz%2Cwght%5D.ttf",
+      "source_sha256": "d0a87d835a944b8b40d0e82a5651bb59ab97b936a2aeed5946eb57e7b2a3a90a",
+      "sha256": "22212f41f55aaa8c42f26e9be933ef071513c863953a6405ebe62201f5a93b6f",
+      "subset_codepoints": null
+    },
+    "noto-emoji.woff2": {
+      "source": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notoemoji/NotoEmoji%5Bwght%5D.ttf",
+      "source_sha256": "de6c18832938afc99caf132b39d6a30a19bac7f2e812e28db2535b4608d27551",
+      "sha256": "30c9b051b0593f3a4cf019857fae2c2938896b9be95fd37e04f370c90d03b5a9",
+      "subset_codepoints": [
+        169
+      ]
+    },
+    "material-outlined.woff2": {
+      "source": "https://raw.githubusercontent.com/google/material-design-icons/10ecc14790612ca8fd164e3f4ffe9c16fc50d5b7/font/MaterialIconsOutlined-Regular.otf",
+      "source_sha256": "b63fa9edd75e3c20328e04ad31dcc38ce76411f3f9ea1a1ff87f49e5ba874b05",
+      "sha256": "26ea0c9254536b9fce76d8249d209af039c4e72b6602643e5b2bef9828753d1d",
+      "subset_codepoints": [
+        58827,
+        58828,
+        57669,
+        58830,
+        58831,
+        59574,
+        59900,
+        58829,
+        58837,
+        61584,
+        61571,
+        59500,
+        57345
+      ]
+    },
+    "Google-Sans-LICENSE.txt": {
+      "source": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/googlesans/OFL.txt",
+      "sha256": "2b75ef20f13d83a7514aee452c4782c20cdc9ff2dee17600f44d37a06d4fb958"
+    },
+    "Noto-Emoji-LICENSE.txt": {
+      "source": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notoemoji/OFL.txt",
+      "sha256": "500bb1ccf43df7bbb522112f9133a52b16e1c35e809632f5d8609b179152de5b"
+    },
+    "Material-Icons-LICENSE.txt": {
+      "source": "https://raw.githubusercontent.com/google/material-design-icons/10ecc14790612ca8fd164e3f4ffe9c16fc50d5b7/LICENSE",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    "Google-Sans-TRADEMARKS.md": {
+      "source": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/googlesans/TRADEMARKS.md",
+      "sha256": "215bc8c1ce46d1b81531f33ebb5af201e7a5da76b8f3ae4c705336fd70fc89e1"
+    },
+    "material-info.woff2": {
+      "upstream_family": "https://github.com/google/material-design-icons/tree/master/variablefont",
+      "source_file": "MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf",
+      "source_version": "Version 2.973",
+      "source_sha256": "7635620acc5e6538e42b95366a88fbca070fd6438e2d3a15fec1a110ce7ea1f4",
+      "source_glyph": "G+0141",
+      "unicode": "U+E88E",
+      "family": "Material Symbols Outlined",
+      "instance_axes": {
+        "FILL": 0.0,
+        "GRAD": 0.0,
+        "opsz": 24.0,
+        "wght": 400.0
+      },
+      "subset_codepoints": [
+        59534
+      ],
+      "sha256": "5ec5c6c847fd2fcb55dc05f6b40de97ddc4945007e72158d9b32ecf23b07c230",
+      "derivation": "Static default-axis Info subset from the installed designer font; not claimed byte-identical to the current upstream variable font."
+    }
+  },
+  "icons": {
+    "chevron_left": "e5cb",
+    "chevron_right": "e5cc",
+    "add": "e145",
+    "expand_less": "e5ce",
+    "expand_more": "e5cf",
+    "search": "e8b6",
+    "upload_file": "e9fc",
+    "close": "e5cd",
+    "refresh": "e5d5",
+    "download": "f090",
+    "warning_amber": "f083",
+    "check_circle": "e86c",
+    "error_outline": "e001",
+    "info": "e88e"
+  },
+  "preparation_tools": {
+    "fontTools": "4.61.1",
+    "Brotli": "1.1.0"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "name": "theia",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": true,
   "type": "module",
-  "description": "Self-contained local HTML installer for paired SYNODIC Core; public Core integration pending",
+  "description": "Self-contained local SYNODIC Core installer with a three-step wizard",
   "license": "GPL-3.0-or-later"
 }

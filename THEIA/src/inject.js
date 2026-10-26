@@ -4,11 +4,12 @@ async function sha256(bytes) {
 }
 const utf8 = text => new TextEncoder().encode(text);
 function detectGame(text) {
-  if (!text.includes('<tw-storydata') || !text.includes('format="SugarCube"')) throw Error('Not a recognized SugarCube export');
+  const invalid = message => Object.assign(Error(message), {code:'INVALID_STG'});
+  if (!text.includes('<tw-storydata') || !text.includes('format="SugarCube"')) throw invalid('Not a recognized STG SugarCube export');
   const scripts = [...text.matchAll(/<script\b[^>]*\bid=["']twine-user-script["'][^>]*>([\s\S]*?)<\/script>/gi)];
-  if (scripts.length !== 1) throw Error('Missing or duplicate native game script');
+  if (scripts.length !== 1) throw invalid('Missing or duplicate native game script');
   const versions = [...scripts[0][1].matchAll(/window\.STG_VERSION\s*=\s*(['"])(.*?)\1/g)].map(m => m[2]);
-  if (versions.length !== 1 || !isGameVersion(versions[0].replace(/^v/, ''))) throw Error('Missing, duplicate or unsupported version declaration');
+  if (versions.length !== 1 || !isGameVersion(versions[0].replace(/^v/, ''))) throw invalid('Missing, duplicate or unsupported STG version declaration');
   const injected = /<!-- STG-[A-Z-]+:(?:START|END) -->|id=["'](?:LUNAR-|MOONSHINE-|lunar\.|moonshine\.)/.test(text);
   return {declared: versions[0], version: versions[0].replace(/^v/, ''), injected};
 }
